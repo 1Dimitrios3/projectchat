@@ -164,7 +164,7 @@
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Get membership
+        Go to homepage
     </button>
 
     <!-- Modal -->
@@ -173,18 +173,18 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Upgrade Membership
+                    <h5 class="modal-title" id="exampleModalLabel">Visit Homepage
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to upgrade your membership?
+                    You are about to visit the homepage!
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Yes take me there</button>
+                    <a href="/"> <button type="button" class="btn btn-primary">Yes take me there</button></a>
                 </div>
             </div>
         </div>
@@ -193,44 +193,6 @@
     <br><br>
 
     <!-- End of Modal Section -->
-
-    <br><br>
-    <h2>Query based on current date</h2>
-    <h4>Get ID and Start dates of past trainings</h4>
-    <% let elements1=JSON.parse(data1) %>
-        <% for(let i=0; i < elements1.rows.length; i ++) { %>
-            <div class="table">
-                <span>ID:</span>
-                <span>
-                    <%= elements1.rows[i].id %>
-                </span>
-                <span>StartDate:</span>
-                <span>
-                    <%= elements1.rows[i].startDate %>
-                </span>
-
-            </div>
-            <% } %>
-                <br><br>
-                <h2>Third Query</h2>
-                <h4>Select user who is currently loggedIn and has a membership</h4>
-                <% let elements3=JSON.parse(data3) %>
-                    <% for(let i=0; i < elements3.rows.length; i ++) { %>
-                        <div class="table">
-                            <span>ID:</span>
-                            <span>
-                                <%= elements3.rows[i].id %>
-                            </span>
-                            <span>Lastname:</span>
-                            <span>
-                                <%= elements3.rows[i].lastName %>
-                            </span>
-                            <span>Email:</span>
-                            <span>
-                                <%= elements3.rows[i].email %>
-                            </span>
-                        </div>
-                        <% } %>
 
 
 

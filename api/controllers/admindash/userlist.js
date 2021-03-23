@@ -1,6 +1,7 @@
+const utils = require('../../../application/utilities');
 module.exports = {
     // inputs: {
-
+      
     // },
     exits: {
         success: {
@@ -8,31 +9,23 @@ module.exports = {
         }
     },
     fn: async function() {
-        // creation of a simple query to test sails sendNativeQuery functionality
-        
+        let now = new Date();
+        var today = utils.formatDate(now);
+        console.log(today);
+
         var query1 = `
-        SELECT *
-        from user
-        WHERE user.money = $1 
-        `;
+        SELECT id, startDate
+        FROM training 
+        WHERE startDate < $1 
+        `
 
-        var payload1 = await sails.sendNativeQuery(query1, [10]);
-        // Here we create a more complex query. The name of the first parameter after WHERE clause does not enter the brackets successfully
-
-        var query2 = `
-        SELECT firstName, lastName, email
-        FROM user
-        JOIN training
-        ON user.id = training.customerId
-        JOIN usermembership
-        ON user.id = usermembership.userId
-        WHERE user.id = training.customerId && usermembership.membershipId = $1 OR membershipId = $2 OR membershipId = $3
-        `;
-        var payload2 = await sails.sendNativeQuery(query2, [1, 2, 3]);
+        var payload1 = await sails.sendNativeQuery(query1, [today]);
+        console.log(payload1)
+       
 
         // Here we select the current user who is loggedIn and has a membership
 
-        let userId = this.req.session.user.id;
+        let userId = this.req.session.user_id;
 
         var query3 = `
         SELECT *
@@ -52,17 +45,13 @@ module.exports = {
         //  `
         //  var payload = await sails.sendNativeQuery(query3, []);
         let data1 = JSON.stringify(payload1)
-        let data2 = JSON.stringify(payload2)
         let data3 = JSON.stringify(payload3)
-        let newData = JSON.parse(data3);
-        // console.log(newData.user_id)
-
-        // console.log(this.req.user_id)
 
         // debug mode
         // sails.log(data)
+        // console.log(this.req.user_id)
 
         
-        return {data1: data1, data2: data2, data3: data3}
+        return { data1: data1, data3: data3}
     }
 }

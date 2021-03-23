@@ -29,10 +29,6 @@
         #exampleFormControlTextarea1 {
             resize: none;
         }
-
-        /* .tit {
-            border: 1px solid #fff;
-        } */
     </style>
 </head>
 <!-- HEADER -->
@@ -181,13 +177,12 @@
                             </div>
                         </div>
 
-                        <br><br>
+                        <br>
 
                         <!-- End of Modal Section -->
                         <hr>
                         <div class="col">
-                            <h5 class="mb-1">Upcoming Trainings:</h5>
-                            <br>
+                            <h5 class="">Upcoming Trainings:</h5>
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
@@ -199,71 +194,64 @@
                                 <tbody>
                                     <% let cancelUrl='cancel' %>
                                         <% for(let i=0; i < payloadFuture.length; i++) { %>
-                                            <%  let localId = Number(parseInt(payloadFuture[i].id) + 1)
-                                                var cancelTraining ='/trainings/cancel/'
-                                                console.log(localId, typeof(localId))
-                                            
-                                                %>
-
-
-                                                <tr>
-                                                    <th scope="row">
-                                                        <%= payloadFuture[i].startDate %>
-                                                    </th>
-                                                    <td>
-                                                        <%= payloadFuture[i].firstName %>
-                                                            <%= payloadFuture[i].lastName %>
-                                                    </td>
-                                                    <td>
-                                                        <!-- Button trigger modal -->
-                                                        <!-- <div class="col d-flex align-items-end flex-column"> -->
-                                                        <button type="button" class="btn btn-danger text-white ml-2"
-                                                            data-toggle="modal"
-                                                            data-target="#exampleModal2">Cancel</button>
-                                                        <!-- </div> -->
-                                                        <!-- Button trigger modal -->
-                                                    </td>
-                                                </tr>
-                                                <!-- Modal 2 -->
-                                                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Cancel
-                                                                    Training
-                                                                </h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                You are about to cancel this training!
-                                                                Are you sure you want to proceed?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button class="btn btn-danger"
-                                                                    onclick="deleteTraining('<%=url%>' +'<%=cancelTraining%>' + '<%=localId%>')">Yes
-                                                                    Cancel</button>
+                                            <% let localId=Number(parseInt(payloadFuture[i]._id) + 1) %>
+                                                <% console.log(localId,typeof(localId)) %>
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <%= payloadFuture[i].startDate %>
+                                                        </th>
+                                                        <td>
+                                                            <%= payloadFuture[i].firstName %>
+                                                                <%= payloadFuture[i].lastName %>
+                                                        </td>
+                                                        <td>
+                                                            <!-- Button trigger modal -->
+                                                            <!-- <div class="col d-flex align-items-end flex-column"> -->
+                                                            <button class="btn btn-danger"
+                                                                onclick="deleteTraining('<%=url%>' +'/trainings/cancel/' +'<%=payloadFuture[i]._id%>')">
+                                                                Cancel</button>
+                                                            <!-- </div> -->
+                                                            <!-- Button trigger modal -->
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Modal 2 -->
+                                                    <!-- <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                                        role="dialog" aria-labelledby="exampleModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        Cancel
+                                                                        Training
+                                                                    </h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    You are about to cancel this training!
+                                                                    Are you sure you want to proceed?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                   
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </div> -->
 
-                                                <br><br>
-
-                                                <!-- End of Modal 2 Section -->
-                                                <% } %>
+                                                    <!-- End of Modal 2 Section -->
+                                                    <% } %>
                                 </tbody>
                             </table>
                         </div>
                         <hr>
                         <div class="col">
                             <h5 class="mb-1">Past Trainings:</h5>
-                            <br>
+
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
