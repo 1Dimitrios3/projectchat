@@ -12,31 +12,33 @@ module.exports = {
         description: {
             type: 'string'
         },
+        isOffer: {
+            type: 'boolean'
+        }
     },
-    fn: async function({name, typeCount, description}) {
+    fn: async function({name, typeCount, description, isOffer}) {
         let res = this.res;
         let req = this.req;
 
-        let _membership = new MembershipType( name, typeCount, description);
-        console.log("123" + _membership.price)
+        let _membership = new MembershipType( name, typeCount, description, isOffer);
+        console.log("123" + _membership.isoffer)
 
         var membership = await Membership.create({
             name: _membership.name,
             typeCount: _membership.typecount,
             description: _membership.description,
+            isOffer: _membership.isoffer
             // price: _membership.price
         }).fetch()
+
+        console.log(membership)
 
         // <-- debug mode -->
         // console.log(_membership)
         // console.log(typeof(_membership.price))
 
-        // var usermembership = await UserMembership.create({
-        //     price: _membership.price,
-        //     membershipId: membership.id
-        // }).fetch()
 
-        return res.successAction('Membership created!', {where:'new membership'},'/trainers')
+        return res.successAction('Membership created!', {where:'new membership'},'/memberships')
 
 
     }

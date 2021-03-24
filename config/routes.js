@@ -37,6 +37,10 @@ module.exports.routes = {
   'GET /memberships': {action: 'dev/populatememberships'},
   'POST /memberships': {action: 'membership/getmembership'}, 
 
+  // special offer membership 
+  'GET /specialmembership': {action: 'dev/getspecialmembership'},
+  'POST /specialmembership': {action: 'membership/getspecialmembership'},
+
 
   // select trainer section
   'GET /trainers' : {action : 'dev/populatetrainers'},

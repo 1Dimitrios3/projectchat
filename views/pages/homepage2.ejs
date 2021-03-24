@@ -58,8 +58,13 @@
         /* margin-right: 0.2rem; */
     }
 
+    .aboutus {
+        background-color: black;
+    }
+
     .custom-about {
         background-color: black;
+        margin: auto;
     }
 
     .rounded {
@@ -74,10 +79,10 @@
         font-size: 0.5rem;
         font-family: 'Permanent Marker', cursive;
         text-align: justify;
-        display: flex;
+        /* display: flex;
         align-items: center;
-        justify-content: center;
-        height: 50vh;
+        justify-content: center; */
+        /* height: 50vh; */
         line-height: 50px;
     }
 
@@ -208,7 +213,7 @@
     <!-- about section -->
     <section id="about">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row aboutus">
                 <div class="col-lg-6 col-sm-12 col md-12 about-picture height-60 ">
 
                 </div>
@@ -362,57 +367,71 @@
             </section>
             <!-- end of trainer section -->
 
-
-            <!-- footer -->
-            <footer id="footer" class="py-5 custom-footer">
-                <div class="container">
-                    <!--section-title -->
-                    <div class="row">
-                        <div class="col text-center">
-                            <h1 class="display-4 text-uppercase text-white mb-0">
-                                <strong>follow us on</strong><a href="" name="contact"></a>
-                            </h1>
-                            <div class="row mb-3">
-                                <div class="col text-center">
-                                    <a href="https://www.facebook.com/" class="btn">
-                                        <img src="/images/facebook.png" alt="" width="30rem">
-                                    </a>
-                                    <a href="https://www.instagram.com/" class="btn">
-                                        <img src="/images/instagram.png" alt="" width="30rem">
-                                    </a>
-                                    <a href="https://twitter.com/" class="btn">
-                                        <img src="/images/twitter.png" alt="" width="30rem">
-                                    </a>
-                                    <a href="https://www.youtube.com/" class="btn">
-                                        <img src="/images/youtube.png" alt="" width="30rem">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="title-underline bg-primary"></div>
-                            <p class="mt-2 text-capitalize text-muted text-center">Copyright @ Quarantgym is registered
-                                trademark of
-                                Quarantgym
-                                International Ltd. All rights reserved.</p>
+            <% if(req.session.user && req.session.user.hasActiveMembership && req.session.user.membershipName=='Bronze'
+                ) { %>
+                <!-- special offer banner -->
+                <section id="team" class="py-5">
+                    <div class="container">
+                        <div class="row">
+                            <a href="/specialmembership"><img src="images/specialOffer.jpeg" class="img-fluid"
+                                    alt="special offer"></a>
                         </div>
                     </div>
-                    <!-- end of section-title -->
+                </section>
+                <!-- end of special offer banner -->
+                <% } %>
 
-                </div>
-            </footer>
-            <!-- end of footer -->
+                    <!-- footer -->
+                    <footer id="footer" class="py-5 custom-footer">
+                        <div class="container">
+                            <!--section-title -->
+                            <div class="row">
+                                <div class="col text-center">
+                                    <h1 class="display-4 text-uppercase text-white mb-0">
+                                        <strong>follow us on</strong><a href="" name="contact"></a>
+                                    </h1>
+                                    <div class="row mb-3">
+                                        <div class="col text-center">
+                                            <a href="https://www.facebook.com/" class="btn">
+                                                <img src="/images/facebook.png" alt="" width="30rem">
+                                            </a>
+                                            <a href="https://www.instagram.com/" class="btn">
+                                                <img src="/images/instagram.png" alt="" width="30rem">
+                                            </a>
+                                            <a href="https://twitter.com/" class="btn">
+                                                <img src="/images/twitter.png" alt="" width="30rem">
+                                            </a>
+                                            <a href="https://www.youtube.com/" class="btn">
+                                                <img src="/images/youtube.png" alt="" width="30rem">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="title-underline bg-primary"></div>
+                                    <p class="mt-2 text-capitalize text-muted text-center">Copyright @ Quarantgym is
+                                        registered
+                                        trademark of
+                                        Quarantgym
+                                        International Ltd. All rights reserved.</p>
+                                </div>
+                            </div>
+                            <!-- end of section-title -->
 
-            <!-- Optional JavaScript -->
-            <script src="myscript.js"></script>
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
+                        </div>
+                    </footer>
+                    <!-- end of footer -->
+
+                    <!-- Optional JavaScript -->
+                    <script src="myscript.js"></script>
+                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                        crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                        crossorigin="anonymous"></script>
 </body>
 
 </html>

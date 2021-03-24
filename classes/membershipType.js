@@ -1,11 +1,12 @@
 
 class MembershipType {
-    constructor( name, typecount, description, price) {
+    constructor( name, typecount, description, isoffer) {
        
         this._name = name;
         this._typecount = typecount;
         this._description = description;
-        this._price = price;
+        // this._price = price;
+        this._isoffer = isoffer;
     }
     get name() {
         return this._name;
@@ -25,22 +26,20 @@ class MembershipType {
     set description(newDescription) {
         this._description = newDescription;
     }
-    get price() {
-        return this._price;
-        
-    }
-    // calcPrice(){
-    //     if(this.name == 'Bronze') {
-    //         price == 100;
-    //     } else if (this.name == 'Silver') {
-    //         price == 300;
-    //     } else {
-    //         price == 500;
-    //     }
+    // get price() {
     //     return this._price;
+        
     // }
-    set price(newPrice) {
-        this._price = newPrice;
+
+    // set price(newPrice) {
+    //     this._price = newPrice;
+    // }
+
+    get isoffer(){
+        return this._isoffer
+    }
+    set isoffer(newOffer) {
+        this._isoffer = newOffer
     }
     
 }

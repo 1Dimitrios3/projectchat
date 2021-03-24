@@ -1,5 +1,5 @@
 
-class MembershipType2 {
+class SpecialMembership {
     constructor(id, name, typecount, description, price, isOffer) {
         this._id = id;
         this._name = name;
@@ -48,4 +48,4 @@ class MembershipType2 {
     }
 }
 
-module.exports = MembershipType2;
+module.exports = SpecialMembership;

@@ -24,6 +24,9 @@ module.exports = {
         type: 'string',
         maxLength: 800
     },
+    isOffer: {
+        type: 'boolean'
+    },
     // users: {
     //     model: 'User',
     // }

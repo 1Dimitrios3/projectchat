@@ -6,13 +6,14 @@
  *
  * For more information on configuring policies, check out:
  * https://sailsjs.com/docs/concepts/policies
- */
+ */ 
 
 const isLoggedIn = require("../api/policies/isLoggedIn");
 const formCheck = require("../api/policies/formCheck");
 const trainingCheck = require("../api/policies/trainingCheck");
 const membershipAccess = require("../api/policies/membershipAccess");
 const membershipCheck = require("../api/policies/membershipCheck");
+const specialMembershipCheck = require("../api/policies/specialMembershipCheck");
 
 module.exports.policies = {
 
@@ -27,6 +28,9 @@ module.exports.policies = {
   'account/detailsuser':isLoggedIn,
   'account/trainer': ['isloggedIn', 'membershipCheck'],
   'account/trainer2':trainingCheck,
-  'membership/getmembership': membershipAccess
+  'membership/getmembership': membershipAccess,
+  'dev/getspecialmembership': isLoggedIn,
+  'membership/getspecialmembership': specialMembershipCheck
+  
 };
 
