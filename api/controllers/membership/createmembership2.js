@@ -38,7 +38,7 @@ module.exports = {
         // console.log(typeof(_membership.price))
 
 
-        return res.successAction('Membership created!', {where:'new membership'},'/memberships')
+        return res.successAction('Membership created!', {where:'new membership'},'/users/list')
 
 
     }

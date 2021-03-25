@@ -1,19 +1,4 @@
-/* updating with fixes :
-    
-    @dimitris : the function you included here does not do what you intended for it to do.
-    You can do calculations using the actual Date() object.
-    see below for method used : 
-        . create a new date object using the date parsed as req.body.startDate
-        . create a new date object for now using the new Date() method.
-        . directly compare the 2 date objects inside your if() statement.
-    
-        commenting out the function for reference and will remove on next push
-
-    policy now works as expected.
-
-
-*/
-    
+   
 module.exports = async function(req, res, proceed) {
     console.log('inside policy trainingCheck')
     let startDate = new Date(req.body.startDate);

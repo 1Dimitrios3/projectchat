@@ -29,9 +29,11 @@ module.exports.routes = {
   'GET /login' : {action : 'account/login2'},
   'POST /login' : {action : 'account/login'},
 
-  // membership creation from admin
+  // membership creation and edit from admin
   'GET /newmembership': {action: 'membership/createmembership'}, 
   'POST /newmembership': {action: 'membership/createmembership2'}, 
+  'GET /membership/edit/:id': {action: 'membership/editmembership'},
+  'POST /membership/update': {action: 'membership/updatemembership'},
 
   // membership purchase from customer
   'GET /memberships': {action: 'dev/populatememberships'},

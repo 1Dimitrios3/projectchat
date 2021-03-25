@@ -14,6 +14,7 @@ const trainingCheck = require("../api/policies/trainingCheck");
 const membershipAccess = require("../api/policies/membershipAccess");
 const membershipCheck = require("../api/policies/membershipCheck");
 const specialMembershipCheck = require("../api/policies/specialMembershipCheck");
+const createMembCheck = require("../api/policies/createMembCheck");
 
 module.exports.policies = {
 
@@ -30,7 +31,7 @@ module.exports.policies = {
   'account/trainer2':trainingCheck,
   'membership/getmembership': membershipAccess,
   'dev/getspecialmembership': isLoggedIn,
-  'membership/getspecialmembership': specialMembershipCheck
-  
+  'membership/getspecialmembership': specialMembershipCheck,
+  'membership/createmembership2': createMembCheck
 };
 
