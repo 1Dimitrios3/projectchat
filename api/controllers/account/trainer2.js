@@ -14,10 +14,10 @@ module.exports = {
         customerId: {
             type: 'number'
         },
-        startDate: {
-            type: 'string'
+        locationId: {
+            type: 'number'
         },
-        location: {
+        startDate: {
             type: 'string'
         },
         isCancelled: {
@@ -44,10 +44,17 @@ module.exports = {
         let session = this.req.session // <- get access to the req session and body object
         let body = this.req.body
 
-        let _booking = new Booking(body.location, body.startDate, session.trainer_selected, session.user.id)
+
+        // Query for finding location ID for the booking
+        let locationId = await Location.find({
+            where: {location: body.location}
+        })
+
+
+        let _booking = new Booking(body.startDate, session.trainer_selected, session.user.id, body.locationId)
         
         //uncomment for debug 
-
+        // console.log("string 234 ID" + body.locationId )
         // console.log('Booking Object : ' + _booking)
         // console.log('end Date : ' + _booking.endDate)
         // console.log('customer_id : ' + _booking.customerId)
@@ -55,16 +62,15 @@ module.exports = {
     
         
         var training = await Training.create({
-            location:_booking.location,
             startDate:_booking.startDate,
             isCancelled: _booking.isCancelled,
             endDate : _booking.endDate,
             trainerId:_booking.trainerId,
             customerId:_booking.customerId,
+            locationId:_booking.locationId
             
         })
         
-        //return {data:'new training created', trainerObject : ""}
         return this.res.successAction(`Success! new training created at ${_booking.startDate}`, {where:'inside trainer2'},'/detailsuser')
     }
 }

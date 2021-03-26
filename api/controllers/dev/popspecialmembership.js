@@ -1,4 +1,4 @@
-const SpecialM = require('../../../classes/specialMembership');
+const SpecialM = require('../../../classes/MembershipType2');
 
 
 module.exports = {

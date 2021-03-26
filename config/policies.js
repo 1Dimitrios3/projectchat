@@ -15,6 +15,7 @@ const membershipAccess = require("../api/policies/membershipAccess");
 const membershipCheck = require("../api/policies/membershipCheck");
 const specialMembershipCheck = require("../api/policies/specialMembershipCheck");
 const createMembCheck = require("../api/policies/createMembCheck");
+const isAdmin = require("../api/policies/isAdmin");
 
 module.exports.policies = {
 
@@ -32,6 +33,12 @@ module.exports.policies = {
   'membership/getmembership': membershipAccess,
   'dev/getspecialmembership': isLoggedIn,
   'membership/getspecialmembership': specialMembershipCheck,
-  'membership/createmembership2': createMembCheck
+  'membership/createmembership2': createMembCheck,
+  'admindash/addlocation': isAdmin,
+  'admindash/userlist': isAdmin,
+  'membership/createmembership': isAdmin,
+  'admindash/deletelocation': isAdmin,
+  'membership/editmembership': isAdmin,
+  'account/deletetraining': isLoggedIn
 };
 

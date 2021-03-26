@@ -40,7 +40,7 @@ module.exports.routes = {
   'POST /memberships': {action: 'membership/getmembership'}, 
 
   // special offer membership 
-  'GET /specialmembership': {action: 'dev/getspecialmembership'},
+  'GET /specialmembership': {action: 'dev/popspecialmembership'},
   'POST /specialmembership': {action: 'membership/getspecialmembership'},
 
 
@@ -51,6 +51,9 @@ module.exports.routes = {
 
   //delete a training
   'GET /trainings/cancel/:id': {action: 'account/deletetraining'},
+  // delete a location
+  'GET /locations/delete/:id': {action: 'admindash/deletelocation'},
+
   // customer/trainer personal page info
   '/detailsuser' : {action :'account/detailsuser'},
 
@@ -60,7 +63,8 @@ module.exports.routes = {
   // admin user dashboard
   'GET /users/list': {action: 'admindash/userlist'},
   'POST /users/list': {action: 'admindash/userlist2'},
-
+  'GET /addlocation': {action: 'admindash/addlocation'}, 
+  'POST /addlocation': {action: 'admindash/addlocation2'},
   
   
 

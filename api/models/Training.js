@@ -13,10 +13,6 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    location: { 
-        type: 'string',
-        maxLength: 100
-    },
     startDate: {
         type: 'string',
         maxLength: 100
@@ -44,6 +40,9 @@ module.exports = {
         customerId: { 
         model: 'User' 
     },
+        locationId: {
+        model: 'Location'
+        }
   },
 
 };

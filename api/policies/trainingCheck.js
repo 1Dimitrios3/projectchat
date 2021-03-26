@@ -2,7 +2,7 @@
 module.exports = async function(req, res, proceed) {
     console.log('inside policy trainingCheck')
     let startDate = new Date(req.body.startDate);
-    let location = req.body.location;
+    let locationId = req.body.locationId;
     let trainerId = req.session.trainer_selected;
     let customerId = req.session.user.id;
     //let endDate = req.session.endDate;
@@ -48,19 +48,29 @@ module.exports = async function(req, res, proceed) {
         }
     }
 
-    
+     let locations = await Location.find({})
 
-    if(startDate == "" || location == "") {
+        let _locations = [];
+        // console.log(locations);
+        for (let location in locations){
+            let row = await locations[location]
+           
+            _locations.push(row);
+        }    
+
+    if(startDate == "Invalid Date" || locationId == "") {
+        startDate.toString();
         errorLog.error = "Please fill in all fields"
     } 
+    console.log(startDate)
     if(trainerId == customerId) {
         errorLog.error = "Sorry you cannot book with yourself!"
     } 
-    // if(startDate < isToday) {
-    //     errorLog.error = "You need to choose a valid date" 
-    // }
+    if(startDate < isToday) {
+        errorLog.error = "You need to choose a valid date" 
+    }
     if(Object.keys(errorLog).length>0) {
-            return res.view('pages/account/trainerpage', {errorList:errorLog, bookedTrainings: "", trainerObject : {trainerFirstName, trainerLastName, trainerBio, trainerImage}})
+            return res.view('pages/account/trainerpage', {errorList:errorLog, bookedTrainings: "", trainingLocations: _locations, trainerObject : {trainerFirstName, trainerLastName, trainerBio, trainerImage}})
             }
 
     return proceed();

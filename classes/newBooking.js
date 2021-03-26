@@ -2,20 +2,13 @@ const dateFormat = require('dateformat')
 
 
 class NewBooking {
-    constructor(location, startDate, trainerId, customerId,cancelStatus,endingDate) {
-        this._location = location;
+    constructor(startDate, trainerId, customerId, locationId, cancelStatus,endingDate) {
         this._startDate = startDate;
         this._isCancelled = cancelStatus;
         this._trainerId = trainerId;
         this._customerId = customerId;
+        this._locationId = locationId;
         this._endDate = endingDate;
-    }
-    get location(){
-        return this._location;
-    }
-
-    set location(loc){
-        this._location = loc;
     }
     get startDate(){
         return this._startDate;
@@ -68,6 +61,13 @@ class NewBooking {
     }
     set customerId(id){
         this._customerId = id;
+    }
+    get locationId(){
+        return this._locationId;
+    }
+
+    set locationId(loc){
+        this._locationId = loc;
     }
     // calcEndDate is a function to calculate and return the starting date + 2 hours. It uses the dateformat module included above
 
