@@ -52,14 +52,7 @@ module.exports = {
                     console.log(`db pass ${user.password}, form pass ${inputs.password}` )
                     
                     if (match) {
-                        /*lines below obsolete after session user model implementation */
-                        // this.req.session.user_email = user.email;
-                        // this.req.session.user_id = user.id;
-                        // this.req.session.isAdmin = userDetails.isAdmin;
-                        // this.req.session.isTrainer = userDetails.isTrainer;
-                        // this.req.session.isCustomer = userDetails.isCustomer;
-                        // console.log('set session email @ : ' + this.req.session.user_email + 'and user id : ' + this.req.session.user_id);
-                        // /*end obsoleteness*/
+                      
                         const todayIs = new Date();
                         let _userModel = utilities.userModel(user,userDetails);
                         const results = await UserMembership.find({userId:user.id});
@@ -121,8 +114,7 @@ module.exports = {
                             }
                             console.log('Login complete user object: ',  this.req.session.user)
                         }
-                    
-                        
+                
                         
                         
                         console.log(_userModel)

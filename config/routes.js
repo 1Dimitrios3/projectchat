@@ -67,9 +67,9 @@ module.exports.routes = {
   'POST /addlocation': {action: 'admindash/addlocation2'},
   
   
-
-  // 'GET /trainerpage': {action: 'account/trainer'},
-  // 'POST /trainerpage': {action: 'account/trainer2'}
+  // chat route
+  'GET /chat': {action: 'entrance/chat'},
+  'POST /chatlogout' : {action : 'entrance/chatlogout'},
 
   
 

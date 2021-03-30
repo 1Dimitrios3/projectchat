@@ -13,9 +13,9 @@ module.exports = {
                 if(err){
                     console.log(err)
                 } 
-            })
-            
+            })  
         }
+
         // I changed the '/' route to listen to an action controller instea
         // Tried a redirect here to homepage in order to have a clean exit and be able to 
         //dynamically render the login/signup button on the homepage without an error

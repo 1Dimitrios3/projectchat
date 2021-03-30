@@ -9,8 +9,8 @@
  * https://sailsjs.com/config/bootstrap
  */
 
-module.exports.bootstrap = async function() {
-
+module.exports.bootstrap = async function(cb) {
+  return cb();
   // By convention, this is a good place to set up fake data during development.
   //
   // For example:
