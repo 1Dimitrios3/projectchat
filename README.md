@@ -21,6 +21,7 @@ A simple trainer booking web app with CRUD capabilities.
 3) Check routes --> /chat
 4) Check api/controllers/entrance/chat.js && chatlogout.js && login.js(left here for reference only)
 5) Check assets/js/chat-page.js && chat-room.js && login-page.js && user-list.js
-6) Check views/pages/chatview/chat.ejs
+6) Check policy --> chatCheck
+7) Check views/pages/chatview/chat.ejs
 
 
